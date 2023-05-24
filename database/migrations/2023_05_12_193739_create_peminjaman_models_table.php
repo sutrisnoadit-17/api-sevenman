@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date("tgl_pinjam");
             $table->string('jam_pinjam');
             $table->boolean("on_acc")->default(0);
+            $table->string("acc_by")->default("Super User");
             $table->unsignedBigInteger("item_id")->nullable();
             $table->unsignedBigInteger("user_id");
             $table->string("username");
