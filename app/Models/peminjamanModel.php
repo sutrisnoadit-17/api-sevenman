@@ -22,5 +22,21 @@ class peminjamanModel extends Model
                     ->update(['on_acc'=>1]);
     }
 
-
+    public static function getLoanLab($argNim){
+        return DB::table('tb_peminjaman AS a')
+                ->join('tb_labparent AS b','a.lab_id','=','b.id')
+                ->where('user_id','=',$argNim)
+                ->get();
+    }
+    public static function getLoanItem($argId){
+        return DB::table('tb_peminjaman AS a')
+                ->join('tb_item AS b','a.item_id','=','b.id')
+                ->where('a.user_id','=',$argId)
+                ->get();
+    }
+    public static function getAll(){
+        return DB::table('tb_peminjaman AS a')
+        ->join('tb_labparent AS b','a.lab_id','=','b.id')
+        ->get();
+    }
 }
